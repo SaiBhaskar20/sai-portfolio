@@ -1,0 +1,689 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+/* =========================
+   1. CSS Variables
+========================= */
+:root {
+    --bg: #07111f;
+    --surface: #0d1b2e;
+    --text: #f4f7fb;
+    --muted: #9eacc0;
+    --accent: #66e3ff;
+    --border: rgba(255, 255, 255, 0.09);
+    --max: 1120px;
+}
+
+/* =========================
+   2. Global Styles
+========================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =========================
+   3. Navigation Bar
+========================= */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    background: rgba(7, 17, 31, 0.86);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font: 700 1.6rem "Space Grotesk";
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+nav {
+    display: flex;
+    gap: 26px;
+}
+
+nav a {
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+nav a:hover {
+    color: var(--text);
+}
+
+.menu-btn {
+    display: none;
+    background: transparent;
+    border: 0;
+    color: var(--text);
+    font-size: 1.6rem;
+}
+
+/* =========================
+   4. Common Section Styles
+========================= */
+.section {
+    width: min(var(--max), 90%);
+    margin: auto;
+    padding: 100px 0;
+}
+
+.alt {
+    width: 100%;
+    max-width: none;
+    padding-left: max(5%, calc((100% - var(--max)) / 2));
+    padding-right: max(5%, calc((100% - var(--max)) / 2));
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.section-heading {
+    max-width: 760px;
+    margin-bottom: 45px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Space Grotesk";
+    line-height: 1.1;
+}
+
+.section-heading h2,
+.ai-preview h2,
+.contact-box h2 {
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    letter-spacing: -2px;
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+}
+
+/* =========================
+   5. Hero Section
+========================= */
+.hero {
+    min-height: calc(100vh - 72px);
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    align-items: center;
+    gap: 70px;
+}
+
+h1 {
+    font-size: clamp(3.2rem, 8vw, 6.4rem);
+    letter-spacing: -5px;
+}
+
+h1 span {
+    display: block;
+    background: linear-gradient(90deg, var(--accent), #a99cff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero h2 {
+    margin-top: 22px;
+    font-size: clamp(1.4rem, 3vw, 2.1rem);
+}
+
+.hero-text {
+    max-width: 670px;
+    color: var(--muted);
+    font-size: 1.08rem;
+    margin: 22px 0 30px;
+}
+
+.hero-buttons,
+.socials,
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+}
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13px 21px;
+    border-radius: 10px;
+    font-weight: 700;
+    border: 1px solid var(--border);
+    cursor: pointer;
+}
+
+.primary {
+    color: #06111e;
+    background: var(--accent);
+}
+
+.secondary {
+    background: transparent;
+}
+
+.socials {
+    margin-top: 25px;
+    gap: 20px;
+}
+
+.socials a {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.hero-card {
+    min-height: 390px;
+    border: 1px solid var(--border);
+    background:
+        radial-gradient(
+            circle at 30% 20%,
+            rgba(102, 227, 255, 0.16),
+            transparent 34%
+        ),
+        var(--surface);
+    border-radius: 28px;
+    padding: 38px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin-bottom: auto;
+    font: 700 3rem "Space Grotesk";
+    color: #07111f;
+    background: linear-gradient(135deg, var(--accent), #9b8cff);
+}
+
+.status {
+    color: #b8c6d9;
+    font-size: 0.84rem;
+    margin-bottom: 16px;
+}
+
+.status span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 7px;
+    border-radius: 50%;
+    background: #48df82;
+}
+
+.hero-card h3 {
+    font-size: 1.8rem;
+}
+
+.hero-card p {
+    color: var(--muted);
+}
+
+/* =========================
+   6. About Section
+========================= */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 50px;
+}
+
+.about-text {
+    color: var(--muted);
+    font-size: 1.08rem;
+}
+
+.about-text p + p {
+    margin-top: 20px;
+}
+
+.info-card {
+    padding: 10px 22px;
+}
+
+.info-card,
+.skill-card,
+.timeline-card,
+.project-card {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 18px;
+}
+
+.info-card div {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.info-card div:last-child {
+    border: 0;
+}
+
+.info-card span {
+    color: var(--muted);
+}
+
+.info-card strong {
+    text-align: right;
+}
+
+/* =========================
+   7. Skills Section
+========================= */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.skill-card {
+    padding: 24px;
+}
+
+.skill-card b {
+    display: block;
+    font: 600 1.15rem "Space Grotesk";
+    margin-bottom: 8px;
+}
+
+.skill-card span {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* =========================
+   8. Internship Section
+========================= */
+.timeline {
+    display: grid;
+    gap: 14px;
+}
+
+.timeline-card {
+    padding: 24px;
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+}
+
+.timeline-number,
+.project-top {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.timeline-card h3 {
+    margin-bottom: 4px;
+}
+
+.timeline-card small {
+    color: var(--accent);
+}
+
+.timeline-card p,
+.project-card p {
+    color: var(--muted);
+    margin-top: 8px;
+}
+
+/* =========================
+   9. Projects Section
+========================= */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.project-card {
+    padding: 28px;
+    min-height: 270px;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card.featured {
+    background:
+        radial-gradient(
+            circle at 90% 0%,
+            rgba(102, 227, 255, 0.13),
+            transparent 30%
+        ),
+        var(--surface);
+}
+
+.project-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 45px;
+    font-size: 0.8rem;
+}
+
+.project-card h3 {
+    font-size: 1.55rem;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 20px 0;
+}
+
+.tags span {
+    padding: 5px 9px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #c3d0df;
+    font-size: 0.75rem;
+}
+
+/* Project GitHub Links */
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 16px;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.92rem;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.project-link:hover {
+    opacity: 0.78;
+    text-decoration: underline;
+}
+
+.project-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* =========================
+   10. AI Preview Section
+========================= */
+.ai-preview {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.ai-preview p:not(.eyebrow),
+.contact-box > p:not(.eyebrow) {
+    color: var(--muted);
+    max-width: 650px;
+    margin-top: 15px;
+}
+
+/* =========================
+   11. AI Assistant Section
+========================= */
+.ai-section {
+    width: min(900px, 90%);
+}
+
+.ai-intro {
+    color: var(--muted);
+    max-width: 700px;
+}
+
+.chat-box {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.22);
+}
+
+.chat-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header strong {
+    display: block;
+    font-family: "Space Grotesk";
+    font-size: 1.05rem;
+}
+
+.chat-header small {
+    color: var(--muted);
+    display: block;
+    margin-top: 3px;
+}
+
+.online-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #48df82;
+}
+
+.chat-messages {
+    height: 340px;
+    overflow-y: auto;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.message {
+    max-width: 78%;
+    padding: 12px 15px;
+    border-radius: 15px;
+    font-size: 0.92rem;
+    white-space: pre-wrap;
+}
+
+.message.bot {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.06);
+    color: #dbe5f2;
+}
+
+.message.user {
+    align-self: flex-end;
+    background: var(--accent);
+    color: #07111f;
+}
+
+.suggestions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 0 22px 16px;
+}
+
+.suggestions button {
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    border-radius: 999px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.suggestions button:hover {
+    color: var(--text);
+    border-color: rgba(102, 227, 255, 0.4);
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+    padding: 16px;
+    border-top: 1px solid var(--border);
+}
+
+.chat-input input {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid var(--border);
+    background: #07111f;
+    color: var(--text);
+    border-radius: 10px;
+    padding: 13px 14px;
+    outline: none;
+}
+
+.chat-input input:focus {
+    border-color: rgba(102, 227, 255, 0.5);
+}
+
+/* =========================
+   12. Contact Section
+========================= */
+.contact-box {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 24px;
+    padding: 55px;
+}
+
+.contact-links {
+    margin-top: 28px;
+}
+
+.contact-links a {
+    color: var(--accent);
+}
+
+/* =========================
+   13. Footer
+========================= */
+footer {
+    border-top: 1px solid var(--border);
+    padding: 25px 5%;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+/* =========================
+   14. Responsive Design
+========================= */
+@media (max-width: 850px) {
+    nav {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        padding: 22px 5%;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+    }
+
+    nav.open {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .hero,
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 70px;
+    }
+
+    .hero-card {
+        min-height: 320px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        letter-spacing: -3px;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ai-preview {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-box {
+        padding: 30px;
+    }
+
+    .chat-messages {
+        height: 300px;
+    }
+
+    .message {
+        max-width: 90%;
+    }
+
+    .chat-input .btn {
+        padding: 11px 15px;
+    }
+}
